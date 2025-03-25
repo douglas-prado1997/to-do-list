@@ -1,0 +1,26 @@
+.container {
+    width: 1000px;
+  }
+  
+  .card {
+    background-color: #f8f9fa;
+  }
+  
+  .btn-group {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .task-text {
+    font-size: 1.2rem;
+  }
+  
+  .edit-input {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  .completed-task {
+    background-color: #28a745; 
+    color: white; 
+  }

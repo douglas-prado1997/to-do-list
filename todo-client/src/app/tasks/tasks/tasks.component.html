@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4">To Do List {{name}}</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="d-flex justify-content-between mb-3">
+              <button class="btn btn-primary" (click)="addTask()">Adicionar Tarefa</button>
+              <button class="btn btn-primary" (click)="addUser()">Adicionar Usuário</button>
+              <button class="btn btn-primary" (click)="logoff()">Sair</button>
+            </div>
+          </form>
+                
+          <ul class="list-group">
+            <li
+              *ngFor="let task of tasks | paginate : { itemsPerPage: itemsPerPage, currentPage: page }"
+              class="list-group-item d-flex justify-content-between align-items-center"
+              [ngClass]="{ 'completed-task': task.completed }"
+            >
+              <span class="task-text">{{ task.name }} - {{ task.description }}</span>
+              <div class="btn-group">
+                <button
+                  class="btn btn-danger btn-sm"
+                  (click)="deleteTask(task)"
+                >
+                  &#x2715;
+                </button>
+                <button class="btn btn-primary btn-sm" (click)="completeTask(task)">
+                  <i class="fas fa-check-circle"></i> {{ task.completed ? 'Finalizada' : 'Finalizar' }}
+                </button>
+              </div>
+            </li>
+          </ul>
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
